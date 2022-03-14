@@ -3,3 +3,12 @@ On souhaite la création d'un playbook qui permet
     d'installer un serveur apache
     de copier un fichier index.html vers le dossier par défault d'apache.
     de démarrer le serveur apache
+
+Exercice 2
+On souhaite la création d'un playbook qui permet
+    d'installer git
+    d'installer docker
+    de démarrer docker
+    récupérer des dockerfiles par git
+    créer une image avec les dockerfiles.
+    
