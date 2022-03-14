@@ -7,3 +7,9 @@
         name:
           - nodejs
         update_cache: yes
+    - name: copy file
+      copy:
+        src: js/
+        dest: /app/
+    - name: creat file with command
+      command: touch /app/file_with_command.txt

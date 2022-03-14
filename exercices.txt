@@ -1,0 +1,5 @@
+Exercice 1
+On souhaite la création d'un playbook qui permet 
+    d'installer un serveur apache
+    de copier un fichier index.html vers le dossier par défault d'apache.
+    de démarrer le serveur apache
