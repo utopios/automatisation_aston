@@ -1,0 +1,9 @@
+---
+- hosts: ihab
+  become: true
+  tasks:
+    - name: install of nodejs
+      apt:
+        name:
+          - nodejs
+        update_cache: yes
