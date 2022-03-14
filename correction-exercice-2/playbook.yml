@@ -1,0 +1,36 @@
+---
+- hosts: ihab
+  become: true
+  tasks:
+    - name: install all packages for docker
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - gnupg
+          - lsb-release
+    
+    - name: add gpg key
+      apt_key:
+        url: https://download.docker.com/linux/debian/gpg
+        state: present
+    
+    - name: add linux repository for docker
+      apt_repository:
+        repo: deb https://download.docker.com/linux/debian stretch stable
+    
+    - name: install docker component
+      apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+        update_cache: yes
+      notify: start docker
+  handlers:
+    - name: start docker
+      service:
+        name: docker
+        state: started
+        enabled: yes
