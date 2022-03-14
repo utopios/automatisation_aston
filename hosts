@@ -1,0 +1,4 @@
+[dev]
+18.189.43.163 ansible_user=admin ansible_ssh_private_key_file=./automatisation-aston.pem
+[prod]
+3.143.249.252 ansible_user=admin ansible_ssh_private_key_file=./automatisation-aston.pem
