@@ -1,0 +1,3 @@
+-- Executer un play-book ansible
+ansible-playbook -v <nom_du_playbook>
+
