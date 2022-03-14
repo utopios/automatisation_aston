@@ -11,5 +11,11 @@
       copy:
         src: html/
         dest: /var/www/html/
+      notify: start apache2 service
+  handlers:
     - name: start apache2 service
-      command: systemctl start apache2 
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+    #   command: systemctl start apache2 
