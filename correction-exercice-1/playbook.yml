@@ -1,0 +1,15 @@
+---
+- hosts: ihab
+  become: true
+  tasks:
+    - name: install apache2
+      apt:
+        name:
+          - apache2
+        update_cache: yes
+    - name: copy file
+      copy:
+        src: html/
+        dest: /var/www/html/
+    - name: start apache2 service
+      command: systemctl start apache2 
