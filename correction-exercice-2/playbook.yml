@@ -10,6 +10,7 @@
           - curl
           - gnupg
           - lsb-release
+          - git
     
     - name: add gpg key
       apt_key:
@@ -28,6 +29,12 @@
           - containerd.io
         update_cache: yes
       notify: start docker
+    
+    - name: clone depot
+      command: git clone <adresse_depot> /app
+    
+    - name: build image
+      command: cd /app && docker build -t nom_image .
   handlers:
     - name: start docker
       service:
