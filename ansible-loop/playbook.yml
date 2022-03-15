@@ -8,3 +8,10 @@
         - /file1.txt
         - /file2.txt
         - /file3.txt
+    - name: test install docker
+      shell: docker
+      register: result
+    - name: Debug
+      debug: 
+        var: result
+   
