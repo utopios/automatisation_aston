@@ -1,0 +1,12 @@
+---
+- hosts: ihab
+  become: true
+  
+  tasks:
+    - name: test shell
+      apt:
+        name:
+          - git
+        update_cache: yes
+      when: ansible_facts["os_family"] == "Debian"
+    
