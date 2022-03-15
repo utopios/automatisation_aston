@@ -6,7 +6,11 @@
     - name: test shell
       shell: cat test.txt
       register: result
-    
+    - name: save variable in local file
+      local_action:
+        module: copy
+        content : "{{result.stdout_lines}}"
+        dest: ./sortie.txt
     - name: debug output ansible
       debug:
         var: result.stdout_lines
