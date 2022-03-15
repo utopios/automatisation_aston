@@ -1,0 +1,10 @@
+---
+- hosts: ihab
+  become: true
+  tasks:
+    - name: write multiple file
+      shell: echo "bonjour tout le monde, dans le fichier {{item}}" >> {{item}}
+      loop:
+        - /file1.txt
+        - /file2.txt
+        - /file3.txt
