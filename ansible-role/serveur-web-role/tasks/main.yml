@@ -1,0 +1,38 @@
+---
+# tasks file for serveur-web-role
+- name: install webserver nodejs debian
+  apt:
+    name:
+      - nodejs
+      - npm
+    update_cache: yes
+  when: ansible_facts['os_family'] == 'Debian'
+- name: install webserver nodejs redhat
+  yum:
+    name:
+      - nodejs
+      - npm
+  when: ansible_facts['os_family'] == 'RedHat'
+- name: createFolder
+  file:
+    path: /app
+    mode: '0755'
+    state: directory
+
+- name: copy index.js
+  copy:
+    src: files/
+    dest: /app
+
+
+- name: install nodejs
+  shell: cd /app && npm install express
+
+- name: execute test
+  shell: cd /app && npm test
+  register: result_unittest
+
+
+
+- name: run nodejs app
+  shell: cd /app && nohup node index.js &  
