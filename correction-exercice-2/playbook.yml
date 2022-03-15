@@ -2,7 +2,7 @@
 - hosts: ihab
   become: true
   tasks:
-    - name: install all packages for docker
+    - name: install all packages for docker debian
       apt:
         name:
           - apt-transport-https
@@ -11,17 +11,20 @@
           - gnupg
           - lsb-release
           - git
-    
-    - name: add gpg key
+      when: ansible_facts['os_family'] == 'Debian'
+
+    - name: add gpg key debian
       apt_key:
         url: https://download.docker.com/linux/debian/gpg
         state: present
-    
-    - name: add linux repository for docker
+      when: ansible_facts['os_family'] == 'Debian'
+
+    - name: add linux repository for docker debian
       apt_repository:
         repo: deb https://download.docker.com/linux/debian stretch stable
-    
-    - name: install docker component
+      when: ansible_facts['os_family'] == 'Debian'
+
+    - name: install docker component debian
       apt:
         name:
           - docker-ce
@@ -29,12 +32,32 @@
           - containerd.io
         update_cache: yes
       notify: start docker
-    
-    - name: clone depot
-      command: git clone <adresse_depot> /app
-    
-    - name: build image
-      command: cd /app && docker build -t nom_image .
+      when: ansible_facts['os_family'] == 'Debian'
+
+    - name: add redhat repository for docker redhat
+      yum_repository:
+        name: dockerrepo
+        baseurl: https://download.docker.com/linux/rhel/docker-ce.repo
+        description: repo for docker
+      when: ansible_facts['os_family'] == 'RedHat'
+
+    - name: install docker component redhat
+      yum:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+        update_cache: yes
+      notify: start docker
+      when: ansible_facts['os_family'] == 'RedHat'
+
+
+    # - name: clone depot
+    #   command: git clone <adresse_depot> /app
+
+    # - name: build image
+    #   command: cd /app && docker build -t nom_image .
+
   handlers:
     - name: start docker
       service:
