@@ -1,0 +1,10 @@
+---
+- hosts: ihab
+  become: true
+  vars_files: 
+    - vars/main.yml 
+  tasks:
+    - name: copy file for {{user}}
+      copy:
+        src: "data/file.txt"
+        dest: "/app/file.txt"
