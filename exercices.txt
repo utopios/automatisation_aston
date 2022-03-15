@@ -11,4 +11,5 @@ On souhaite la création d'un playbook qui permet
     de démarrer docker
     récupérer des dockerfiles par git
     créer une image avec les dockerfiles.
-    
+
+dans une machine à la fois debian et redhat
