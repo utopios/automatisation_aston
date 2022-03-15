@@ -1,0 +1,15 @@
+---
+# tasks file for first-role
+- name: install apache2 debian
+  apt:
+    name:
+      - apache2
+    update_cache: yes
+  when: ansible_facts['os_family'] == "Debian"
+
+- name: install apache2 redhat
+  yum:
+    name:
+      - apache2
+    update_cache: yes
+  when: ansible_facts['os_family'] == "RedHat"

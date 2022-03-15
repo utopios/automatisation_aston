@@ -13,3 +13,6 @@ On souhaite la création d'un playbook qui permet
     créer une image avec les dockerfiles.
 
 dans une machine à la fois debian et redhat
+
+Exercice 3
+Ecrire un role qui permet d'installer un serveur web et de copier une page d'accueil par défault.
