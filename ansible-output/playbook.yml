@@ -1,0 +1,12 @@
+---
+- hosts: ihab
+  become: true
+  
+  tasks:
+    - name: test shell
+      shell: cat test.txt
+      register: result
+    
+    - name: debug output ansible
+      debug:
+        var: result.stdout_lines

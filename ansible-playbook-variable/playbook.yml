@@ -5,6 +5,9 @@
     - vars/main.yml 
   tasks:
     - name: copy file for {{user}}
-      copy:
-        src: "data/file.txt"
-        dest: "/app/file.txt"
+      # copy:
+      #   src: "data/file.txt"
+      #   dest: "/file.txt"
+      template:
+        src: "data/file.txt.j2"
+        dest: "/file.txt"
