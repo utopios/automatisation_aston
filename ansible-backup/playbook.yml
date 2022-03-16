@@ -3,7 +3,7 @@
     - name: sauvegarde des base de données mysql
       shell: "mysqldump -h {{item.remote}} -u {{item.user}} -p{{password}} {{item.basename}} > backup/{{item.basename}}.sql"
       with_items:
-      - { user: '', basename: '', remote: ''}
+      - { user: 'nom_utilisateur', basename: 'nom_base_de_donnees', remote: 'localhost'}
       - { user: '', basename: '', remote: ''}
       - { user: '', basename: '', remote: ''}
       - { user: '', basename: '', remote: ''}
