@@ -30,18 +30,16 @@
        - vote
        - worker
        - result
-       - redis-check
-       - postgres-check
+       
   
   - name: delete folder
     file:
       path: /{{item}}
       state: absent
-      
+
     loop:
        - vote
        - worker
        - result
-       - redis-check
-       - postgres-check
+       
        

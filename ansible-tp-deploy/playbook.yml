@@ -4,5 +4,12 @@
   vars:
     service_name: docker 
   roles:
-    - tools
-    - deploy
+   - tools
+   - deploy
+  tasks:
+    - name: copy docker-compose
+      copy:
+        src: ./docker-compose.yml
+        dest: /docker-compose.yml
+    - name: run application
+      command: cd / && docker-compose up -d 

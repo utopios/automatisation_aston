@@ -48,3 +48,6 @@
       update_cache: yes
     notify: start {{service_name}}
     when: ansible_facts['os_family'] == 'RedHat'
+  - name: install docker-compose
+    shell: curl -L https://github.com/docker/compose/releases/download/1.25.3/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
+
