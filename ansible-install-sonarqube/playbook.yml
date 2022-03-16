@@ -1,6 +1,8 @@
 ---
 - hosts: sonar
   become: true
+  vars:
+    sonar_version: 8.9.7.52159
   pre_tasks:
     - name: Install package dependencies.
       package:
