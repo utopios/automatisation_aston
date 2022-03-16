@@ -1,0 +1,14 @@
+---
+- hosts: sonar
+  become: true
+  pre_tasks:
+    - name: Install package dependencies.
+      package:
+        name: "{{ item }}"
+        state: "present"
+      with_items:
+        - unzip
+        - default-jdk
+  
+  roles:
+    - lrk.sonarqube
