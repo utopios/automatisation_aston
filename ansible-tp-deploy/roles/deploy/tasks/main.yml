@@ -1,0 +1,47 @@
+---
+# tasks file for deploy
+  - name: create folder
+    file:
+      path: /{{item}}
+      state: directory
+      mode: '0755'
+    loop:
+       - vote
+       - worker
+       - result
+       - redis-check
+       - postgres-check
+
+
+  - name: copy folder
+    copy:
+      src: ./{{item}}/
+      dest: /{{item}}/
+    loop:
+       - vote
+       - worker
+       - result
+       - redis-check
+       - postgres-check
+  
+  - name: build images
+    command: docker build -t {{item}} /{{item}}/.
+    loop:
+       - vote
+       - worker
+       - result
+       - redis-check
+       - postgres-check
+  
+  - name: delete folder
+    file:
+      path: /{{item}}
+      state: absent
+      
+    loop:
+       - vote
+       - worker
+       - result
+       - redis-check
+       - postgres-check
+       

@@ -1,0 +1,8 @@
+---
+- hosts: ihab
+  become: true
+  vars:
+    service_name: docker 
+  roles:
+    - tools
+    - deploy
