@@ -25,11 +25,11 @@
        - postgres-check
   
   - name: build images
-    command: docker build -t {{item}} /{{item}}/.
-    loop:
-       - vote
-       - worker
-       - result
+    command: docker build -t {{item.name}} /{{item.name}}/.
+    with_items:
+       - {name: 'vote'}
+       - {name: 'worker'}
+       - {name: 'result' }
        
   
   - name: delete folder

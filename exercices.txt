@@ -32,3 +32,5 @@ Cas 2 :
         le playbook envoie les dumps sur l'espace stockage S3.
         il supprime les dumps localement.
 
+    Application du cas 2
+        On souhaite récupérer des dumps de base de données sur une machine vers la machine agent d'ansible

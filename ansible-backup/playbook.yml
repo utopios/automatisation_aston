@@ -1,0 +1,6 @@
+- hosts: ihab
+  tasks:
+    - name: sauvegarde des base de données
+      shell: # A coder
+    - name: fetch
+      synchronize: src='' dest='' mode=pull
