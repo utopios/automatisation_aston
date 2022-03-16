@@ -1,6 +1,11 @@
 - hosts: ihab
   tasks:
-    - name: sauvegarde des base de données
-      shell: # A coder
+    - name: sauvegarde des base de données mysql
+      shell: "mysqldump -h {{item.remote}} -u {{item.user}} -p{{password}} {{item.basename}} > backup/{{item.basename}}.sql"
+      with_items:
+      - { user: '', basename: '', remote: ''}
+      - { user: '', basename: '', remote: ''}
+      - { user: '', basename: '', remote: ''}
+      - { user: '', basename: '', remote: ''}
     - name: fetch
-      synchronize: src='' dest='' mode=pull
+      synchronize: src=backup dest=backup/ mode=pull
