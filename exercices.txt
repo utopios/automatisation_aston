@@ -16,3 +16,19 @@ dans une machine à la fois debian et redhat
 
 Exercice 3
 Ecrire un role qui permet d'installer un serveur web et de copier une page d'accueil par défault.
+
+Des cas d'utilisation d'Ansible : 
+    1 - Le déploiement d'une application
+    2 - La réalisation de sauvegardes
+    3 - La mise en place d'outils de tests (test unitaire, intégration, qualité)
+    4 - La mise en place et l'automatisation de test de sécurité.
+
+Cas 1 : Réalisé par le TP déploiement
+
+Cas 2 : 
+    Un playbook sur une machine connectée à nos serveurs de base de données relationnelles 
+        le playbook réalise des dumps des base de données.
+        le playbook se connecte à notre espace de stockage sur AWS S3.
+        le playbook envoie les dumps sur l'espace stockage S3.
+        il supprime les dumps localement.
+

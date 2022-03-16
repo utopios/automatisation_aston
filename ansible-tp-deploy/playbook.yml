@@ -1,15 +1,15 @@
 ---
-- hosts: ihab
+- hosts: akeem
   become: true
   vars:
     service_name: docker 
-  roles:
-   - tools
-   - deploy
+  # roles:
+  #  - tools
+  #  - deploy
   tasks:
     - name: copy docker-compose
       copy:
         src: ./docker-compose.yml
         dest: /docker-compose.yml
     - name: run application
-      command: cd / && docker-compose up -d 
+      shell: cd / && docker-compose up -d 
