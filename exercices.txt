@@ -34,3 +34,6 @@ Cas 2 :
 
     Application du cas 2
         On souhaite récupérer des dumps de base de données sur une machine vers la machine agent d'ansible
+
+Cas 3 : 
+    
